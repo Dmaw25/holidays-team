@@ -15,7 +15,7 @@ public class HolidayDaoImpl implements HolidayDao {
 	
 	List<Holiday> holidays = new ArrayList<Holiday>();
 	
-	public List<Holiday> addHolidays() {
+	public List<Holiday> listOfHolidays() {
 		
 		LocalDate ChristmasDate = LocalDate.parse("2018-12-25");
 		Holiday Christmas = new Holiday("Christmas", ChristmasDate);
@@ -38,10 +38,15 @@ public class HolidayDaoImpl implements HolidayDao {
 
 	@Override
 	public Holiday viewHolidaybyDate(LocalDate date) {
+		List<Holiday> holidays = listOfHolidays();
+		
 		for (Holiday i : holidays) {
-			System.out.println(i);
+			if(i.getDate().equals(date))
+			{
+				return i;
+			}
 		}
-			return null;
+			return return;
 	}
 
 	@Override
@@ -64,7 +69,7 @@ public class HolidayDaoImpl implements HolidayDao {
 
 	@Override
 	public void addHoliday(Holiday holiday) {
-		// TODO Auto-generated method stub
+		
 
 	}
 
